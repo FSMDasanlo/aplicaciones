@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplicaciones de JESUS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(45deg, #28a745, #004d4d);
+      color: white;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+	
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(60deg, #28a745, #004d4d);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #999;
+    }
+	
+	  .marca {
+  color: #ffbf00;
+  font-weight: bold;
+  font-size: 1.3em
+}
+.rojo {
+  color: #cc0000;
+  font-size: 1.3em
+}
+.verde {
+  color: #228B22;
+  font-size: 1.3em
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>    
+	<img src="img/yo.png" alt="Icono" style="height: 60px; vertical-align: middle; margin-right: 10px;">Aplicaciones de Jesús	
+	</h1>
+	<p>Tu lanzadera personal de proyectos</p>
+  </header>
+
+
+  <section class="grid">
+      <div class="card">
+		<h2>
+		<img src="img/icon-192.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;"> <span class="rojo">C</span><span class="verde">ontrol</span><span class="rojo">G</span><span class="marca">ym</span>
+		</h2>
+      <p>Asistente personal para tu <strong>Gym</strong> diario.</p>
+      <a href="https://fsmdasanlo.github.io/ControlGym/" target="_blank">Accede</a>
+    </div>
+	
+	 <div class="card">
+		<h2>
+		<img src="img/portada.jpg" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">El Apuntador
+		</h2>
+      <p>Tus juegos de mesa sin lápiz ni papel.</p>
+      <a href="https://fsmdasanlo.github.io/ElApuntador/" target="_blank">Accede</a>
+    </div>
+		
+    <div class="card">
+      <h2>📊 Dashboard Finanzas</h2>
+      <p>Panel interactivo para visualizar datos financieros.</p>
+      <a href="https://github.com/jesus/dashboard-finanzas" target="_blank">Ver proyecto</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 DasanloSoft · Todos los derechos reservados
+  </footer>
+  
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log("✅ Service Worker registrado", reg))
+      .catch(err => console.error("❌ Error al registrar el Service Worker", err));
+  }
+	</script>
+
+</body>
+</html>
