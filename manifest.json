@@ -1,7 +1,7 @@
 {
   "name": "Aplicaciones de JESUS",
   "short_name": "Apps JESUS",
-  "start_url": "./index.html",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#28a745",

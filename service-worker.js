@@ -3,9 +3,13 @@ const urlsToCache = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./img/yo.png",
+  "./img/icon-192B.png",
   "./img/icon-192.png",
   "./img/icon-512.png",
   "./img/portada.jpg",
+  "./img/pensando.jpg",
+  "./img/torneo.png",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
 ];
 
