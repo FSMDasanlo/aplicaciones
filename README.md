@@ -1,2 +1,0 @@
-# aplicaciones
-lanzadera de proyectos
