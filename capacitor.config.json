@@ -1,0 +1,8 @@
+{
+  "appId": "com.dasanlosoft.misapps",
+  "appName": "Mis Aplicaciones",
+  "webDir": "",
+  "server": {
+    "androidScheme": "https"
+  }
+}

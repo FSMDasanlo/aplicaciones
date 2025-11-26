@@ -10,6 +10,7 @@ const urlsToCache = [
   "./img/portada.jpg",
   "./img/pensando.jpg",
   "./img/torneo.png",
+  "./img/mundo.png", // <-- AÑADIR ESTA LÍNEA
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
 ];
 
