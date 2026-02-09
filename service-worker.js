@@ -1,4 +1,4 @@
-const CACHE_NAME = "jesus-app-cache-v1";
+const CACHE_NAME = "jesus-app-cache-v2"; // Incrementa la versión del caché
 const urlsToCache = [
   "./",
   "./index.html",
@@ -10,32 +10,52 @@ const urlsToCache = [
   "./img/portada.jpg",
   "./img/pensando.jpg",
   "./img/torneo.png",
-  "./img/mundo.png", // <-- AÑADIR ESTA LÍNEA
+  "./img/mundo.png",
+  "./img/trivial.png",
+  "./img/miju.png",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
 ];
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
-  self.skipWaiting();
+// Evento install: se dispara cuando el service worker se instala.
+// Cachea los recursos estáticos principales de la aplicación.
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(urlsToCache);
+    self.skipWaiting(); // Activa el nuevo service worker inmediatamente.
+  })());
 });
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.map(key => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      }))
-    )
-  );
-  self.clients.claim();
+// Evento activate: se dispara cuando el service worker se activa.
+// Limpia los cachés antiguos para liberar espacio.
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const cacheNames = await caches.keys();
+    await Promise.all(
+      cacheNames.map(cacheName => {
+        if (cacheName !== CACHE_NAME) {
+          return caches.delete(cacheName);
+        }
+      })
+    );
+    await self.clients.claim(); // Toma el control de las páginas abiertas.
+  })());
 });
 
-self.addEventListener("fetch", event => {
+// Evento fetch: intercepta todas las peticiones de red.
+// Implementa la estrategia "Stale-While-Revalidate".
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request)
-    )
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(event.request).then(cachedResponse => {
+        const fetchPromise = fetch(event.request).then(networkResponse => {
+          // Si la petición fue exitosa, actualizamos el caché.
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+        // Devuelve la respuesta del caché si existe, si no, espera a la red.
+        return cachedResponse || fetchPromise;
+      });
+    })
   );
 });
