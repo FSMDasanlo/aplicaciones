@@ -1,11 +1,13 @@
 {
   "name": "Aplicaciones de JESUS",
   "short_name": "Apps JESUS",
+  "description": "Lanzadera de proyectos y aplicaciones de Jesús.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#28a745",
   "orientation": "portrait",
+  "categories": ["games", "utilities", "lifestyle"],
   "icons": [
     {
       "src": "img/icon-192.png",
@@ -16,6 +18,26 @@
       "src": "img/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/screenshot1.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "img/screenshot2.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide"
     }
   ]
 }
