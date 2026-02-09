@@ -1,4 +1,4 @@
-const CACHE_NAME = "jesus-app-cache-v4"; // Incrementa la versión del caché
+const CACHE_NAME = "jesus-app-cache-v5"; // Incrementa la versión del caché
 const urlsToCache = [
   "./",
   "./index.html",
@@ -14,8 +14,6 @@ const urlsToCache = [
   "./img/trivial.png",
   "./img/miju.png",
   "./img/icon-maskable-512.png",
-  "./img/screenshot1.jpg",
-  "./img/screenshot2.jpg",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
 ];
 
@@ -48,12 +46,17 @@ self.addEventListener('activate', event => {
 // Evento fetch: intercepta todas las peticiones de red.
 // Implementa la estrategia "Stale-While-Revalidate".
 self.addEventListener('fetch', event => {
+  // Solo cacheamos peticiones GET
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
     caches.open(CACHE_NAME).then(cache => {
       return cache.match(event.request).then(cachedResponse => {
         const fetchPromise = fetch(event.request).then(networkResponse => {
-          // Si la petición fue exitosa, actualizamos el caché.
-          cache.put(event.request, networkResponse.clone());
+          // Si la petición fue exitosa y válida (status 200), actualizamos el caché.
+          if (networkResponse && networkResponse.status === 200) {
+            cache.put(event.request, networkResponse.clone());
+          }
           return networkResponse;
         });
         // Devuelve la respuesta del caché si existe, si no, espera a la red.
