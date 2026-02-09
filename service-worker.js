@@ -1,4 +1,4 @@
-const CACHE_NAME = "jesus-app-cache-v3"; // Incrementa la versión del caché
+const CACHE_NAME = "jesus-app-cache-v4"; // Incrementa la versión del caché
 const urlsToCache = [
   "./",
   "./index.html",
@@ -14,6 +14,8 @@ const urlsToCache = [
   "./img/trivial.png",
   "./img/miju.png",
   "./img/icon-maskable-512.png",
+  "./img/screenshot1.jpg",
+  "./img/screenshot2.jpg",
   "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
 ];
 
