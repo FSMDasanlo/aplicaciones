@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#28a745">
   <link rel="apple-touch-icon" href="img/icon-192.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/aplicaciones/manifest.json">
 
   <style>
     body {
@@ -151,7 +151,7 @@
   
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js')
+      navigator.serviceWorker.register('/aplicaciones/service-worker.js')
         .then(reg => console.log('Service Worker registrado', reg))
         .catch(err => console.error('Error al registrar Service Worker', err));
     }
@@ -159,3 +159,4 @@
 
 </body>
 </html>
+
