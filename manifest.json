@@ -2,8 +2,8 @@
   "name": "Mis Aplicaciones - DasanloSoft",
   "short_name": "Aplicaciones",
   "description": "Lanzadera de proyectos y aplicaciones de DasanloSoft.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/aplicaciones/",
+  "scope": "/aplicaciones/"
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#28a745",
