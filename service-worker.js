@@ -1,20 +1,8 @@
-const CACHE_NAME = "jesus-app-cache-v5"; // Incrementa la versión del caché
+const CACHE_NAME = "jesus-app-cache-v6"; // Incrementa la versión del caché
 const urlsToCache = [
   "./",
   "./index.html",
-  "./manifest.json",
-  "./img/yo.png",
-  "./img/icon-192B.png",
-  "./img/icon-192.png",
-  "./img/icon-512.png",
-  "./img/portada.jpg",
-  "./img/pensando.jpg",
-  "./img/torneo.png",
-  "./img/mundo.png",
-  "./img/trivial.png",
-  "./img/miju.png",
-  "./img/icon-maskable-512.png",
-  "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+  "./manifest.json"
 ];
 
 // Evento install: se dispara cuando el service worker se instala.
