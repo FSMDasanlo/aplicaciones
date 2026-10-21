@@ -37,6 +37,107 @@
       max-width: 1200px;
       margin: auto;
     }
+    .category-title {
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      padding: 0 2rem;
+      color: #004d4d;
+      font-size: 1.6rem;
+    }
+    .category-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      overflow: hidden;
+      min-height: 220px;
+      border-top: 5px solid var(--category-accent);
+      background: linear-gradient(145deg, #fff 65%, var(--category-tint));
+      text-align: left;
+    }
+    .category-card--play {
+      --category-accent: #ec8b32;
+      --category-tint: #fff3e6;
+    }
+    .category-card--tools {
+      --category-accent: #4388c8;
+      --category-tint: #eaf4fc;
+    }
+    .category-card--life {
+      --category-accent: #35a578;
+      --category-tint: #e9f7f0;
+    }
+    .category-kicker {
+      display: block;
+      margin-bottom: 0.65rem;
+      color: var(--category-accent);
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .category-card h3 {
+      margin: 0 0 0.65rem;
+      color: #004d4d;
+      font-size: 1.4rem;
+      line-height: 1.25;
+    }
+    .category-card p {
+      margin: 0 0 1.25rem;
+      line-height: 1.5;
+    }
+    .category-card-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    .app-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .app-icons img {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(0, 77, 77, 0.1);
+      border-radius: 9px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+      object-fit: cover;
+    }
+    .category-count {
+      flex: 0 0 auto;
+      padding: 0.4rem 0.65rem;
+      border-radius: 999px;
+      background: var(--category-accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .category-card:focus-visible {
+      outline: 3px solid var(--category-accent);
+      outline-offset: 3px;
+    }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      padding: 0 2rem;
+    }
+    .section-heading .category-title {
+      margin: 0;
+      padding: 0;
+    }
+    .back-link {
+      color: #006b5b;
+      font-weight: bold;
+      white-space: nowrap;
+    }
     .card {
       background-color: white;
       border-radius: 8px;
@@ -112,120 +213,193 @@
   </header>
 
 
-  <section class="grid">
+  <main>
+    <section id="inicio" aria-labelledby="inicio-title">
+      <h2 class="category-title" id="inicio-title">Explora por categoría</h2>
+      <div class="grid">
+        <a class="card category-card category-card--play" href="#ocio">
+          <span class="category-kicker">01 · Para disfrutar</span>
+          <h3>Juegos, aprendizaje y entretenimiento</h3>
+          <p>Juegos de mesa, retos, cultura y planes para disfrutar.</p>
+          <div class="category-card-footer">
+            <div class="app-icons">
+              <img src="img/portada.jpg" alt="El Apuntador">
+              <img src="img/pensando.jpg" alt="Juegos de lógica">
+              <img src="img/mundo.png" alt="Conoce mundo">
+              <img src="img/miju.png" alt="Miju">
+              <img src="img/trivial.png" alt="Trivial">
+              <img src="img/peliplan.png" alt="PeliPlan">
+            </div>
+            <span class="category-count">6 apps</span>
+          </div>
+        </a>
+        <a class="card category-card category-card--tools" href="#gestion">
+          <span class="category-kicker">02 · Para organizar</span>
+          <h3>Herramientas y gestión</h3>
+          <p>Aplicaciones para organizar tareas, controlar y gestionar.</p>
+          <div class="category-card-footer">
+            <div class="app-icons">
+              <img src="img/torneo.png" alt="Gestión de Torneos">
+              <img src="img/tikets.png" alt="Control de Gastos">
+              <img src="img/Home_status.png" alt="Home Status">
+              <img src="img/Psia.PNG" alt="PsicoFact">
+              <img src="img/tv.png" alt="TimeTV">
+              <img src="img/loteria.png" alt="Lotería">
+              <img src="img/logoAlerti.png" alt="Alerti">
+              <img src="img/ai_arena.png" alt="AI Arena">
+            </div>
+            <span class="category-count">8 apps</span>
+          </div>
+        </a>
+        <a class="card category-card category-card--life" href="#vida">
+          <span class="category-kicker">03 · Para cuidarte y viajar</span>
+          <h3>Deporte, bienestar y viajes</h3>
+          <p>Entrenamiento, nutrición y ayuda para tus viajes.</p>
+          <div class="category-card-footer">
+            <div class="app-icons">
+              <img src="img/icon-192B.png" alt="ControlGym">
+              <img src="img/spartan.jpeg" alt="NutriPlan">
+              <img src="img/estancias.png" alt="Roomly">
+            </div>
+            <span class="category-count">3 apps</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  <section id="ocio" aria-labelledby="ocio-title" hidden>
+    <div class="section-heading">
+      <h2 class="category-title" id="ocio-title">Juegos, aprendizaje y entretenimiento</h2>
+      <a class="back-link" href="#inicio">← Todas las categorías</a>
+    </div>
+    <div class="grid">
       <div class="card">
-		<h2>
-		<img src="img/icon-192B.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;"> <span class="rojo">C</span><span class="verde">ontrol</span><span class="rojo">G</span><span class="marca">ym</span>
-		</h2>
-      <p>Asistente personal para tu <strong>Gym</strong> diario.</p>
-      <a href="https://fsmdasanlo.github.io/ControlGym/" target="_blank">Accede</a>
-    </div>
-	
-	 <div class="card">
-		<h2>
-		<img src="img/portada.jpg" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">El Apuntador
-		</h2>
-      <p>Tus juegos de mesa sin lápiz ni papel.</p>
-      <a href="https://fsmdasanlo.github.io/ElApuntador/" target="_blank">Accede</a>
-    </div>
-		
-    <div class="card">
-      <h2><img src="img/pensando.jpg" alt="Icono" style="height: 60px; vertical-align: middle; margin-right: 10px;">Juegos de lógica</h2>
-      <p>Divertidos e ingeniosos juegos de lógica.</p>
-      <a href="https://fsmdasanlo.github.io/jlogica" target="_blank">A pensar !</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/torneo.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Gestión de Torneos</h2>
-      <p>Crea y gestiona tus torneos de padel. Grupos, parejas, enfrentamientos, play off, galería</p>
-      <a href="https://fsmdasanlo.github.io/torneo/index.html" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/tikets.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Control de Gastos</h2>
-      <p>Gestión de gastos y volcado de tikets. Zonas, comercios, categorias, conceptos...</p>
-      <a href="https://fsmdasanlo.github.io/tikets/index.html" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/mundo.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Conoce mundo</h2>
-      <p>¿Cuántas ciudades reconoces?</p>
-      <a href="https://fsmdasanlo.github.io/turismo/index.html" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/miju.png" alt="Icono" style="height: 90px; vertical-align: middle; margin-right: 10px;">Miju</h2>
-      <p>Superdivertido. Reta a tus amigos a aprender jugando.</p>
-      <a href="https://fsmdasanlo.github.io/Miju" target="_blank">Accede</a>
-    </div>
-
+        <h2><img src="img/portada.jpg" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">El Apuntador</h2>
+        <p>Tus juegos de mesa sin lápiz ni papel.</p>
+        <a href="https://fsmdasanlo.github.io/ElApuntador/" target="_blank">Accede</a>
+      </div>
       <div class="card">
-      <h2><img src="img/trivial.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Trivial</h2>
-      <p>Un divertido juego de preguntas y respuestas.</p>
-      <a href="https://fsmdasanlo.github.io/trivial" target="_blank">Accede</a>
-    </div>
-
+        <h2><img src="img/pensando.jpg" alt="Icono" style="height: 60px; vertical-align: middle; margin-right: 10px;">Juegos de lógica</h2>
+        <p>Divertidos e ingeniosos juegos de lógica.</p>
+        <a href="https://fsmdasanlo.github.io/jlogica" target="_blank">A pensar !</a>
+      </div>
       <div class="card">
-      <h2><img src="img/estancias.png" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">Roomly</h2>
-      <p>Selecciona la mejor estancia en tu viaje</p>
-      <a href="https://fsmdasanlo.github.io/Hotel" target="_blank">Accede</a>
+        <h2><img src="img/mundo.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Conoce mundo</h2>
+        <p>¿Cuántas ciudades reconoces?</p>
+        <a href="https://fsmdasanlo.github.io/turismo/index.html" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/miju.png" alt="Icono" style="height: 90px; vertical-align: middle; margin-right: 10px;">Miju</h2>
+        <p>Superdivertido. Reta a tus amigos a aprender jugando.</p>
+        <a href="https://fsmdasanlo.github.io/Miju" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/trivial.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Trivial</h2>
+        <p>Un divertido juego de preguntas y respuestas.</p>
+        <a href="https://fsmdasanlo.github.io/trivial" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/peliplan.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">PeliPlan</h2>
+        <p>Planifica tu próxima sesión de cine.</p>
+        <a href="https://fsmdasanlo.github.io/Peliplan/" target="_blank">Accede</a>
+      </div>
     </div>
-
-    <div class="card">
-      <h2><img src="img/Home_status.png" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">Home Status</h2>
-      <p>Visualiza el estado de tu hogar en un solo lugar.</p>
-      <a href="https://fsmdasanlo.github.io/MiDespensa/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/Psia.PNG" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">PsicoFact</h2>
-      <p>Gestión facultativa de consultas médicas con intervención de IA</p>
-      <a href="https://fsmdasanlo.github.io/PsicoFact/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/tv.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">TimeTV</h2>
-      <p>Controla el uso del mando de tu TV.</p>
-      <a href="https://fsmdasanlo.github.io/TimeTV/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/loteria.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Lotería</h2>
-      <p>Control de la loteria de Navidad.</p>
-      <a href="https://fsmdasanlo.github.io/Loteria/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/logoAlerti.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Alerti</h2>
-      <p>Gestión de alarmas.</p>
-      <a href="https://fsmdasanlo.github.io/Alerti/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/peliplan.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">PeliPlan</h2>
-      <p>Planifica tu próxima sesión de cine.</p>
-      <a href="https://fsmdasanlo.github.io/Peliplan/" target="_blank">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/spartan.jpeg" alt="Spartan Race" style="height: 40px; vertical-align: middle; margin-right: 10px;">NutriPlan</h2>
-      <p><img src="img/nutriplan.jpg" alt="" style="width: 32px; height: 32px; object-fit: cover; vertical-align: middle; margin-right: 8px;">Entrenamiento y nutrición para llegar en plena forma a la Spartan Race de Tenerife.</p>
-      <a href="https://fsmdasanlo.github.io/NutriPlan/" target="_blank" rel="noopener noreferrer">Accede</a>
-    </div>
-
-    <div class="card">
-      <h2><img src="img/ai_arena.png" alt="AI Arena" style="height: 40px; vertical-align: middle; margin-right: 10px;">AI Arena</h2>
-      <p>Una competición entre IA para descubrir cuál es mejor. ¡Que gane la mejor inteligencia!</p>
-      <a href="https://fsmdasanlo.github.io/AI_arena/" target="_blank" rel="noopener noreferrer">Accede</a>
-    </div>
-
   </section>
+
+  <section id="gestion" aria-labelledby="gestion-title" hidden>
+    <div class="section-heading">
+      <h2 class="category-title" id="gestion-title">Herramientas y gestión</h2>
+      <a class="back-link" href="#inicio">← Todas las categorías</a>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2><img src="img/torneo.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Gestión de Torneos</h2>
+        <p>Crea y gestiona tus torneos de padel. Grupos, parejas, enfrentamientos, play off, galería</p>
+        <a href="https://fsmdasanlo.github.io/torneo/index.html" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/tikets.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Control de Gastos</h2>
+        <p>Gestión de gastos y volcado de tikets. Zonas, comercios, categorias, conceptos...</p>
+        <a href="https://fsmdasanlo.github.io/tikets/index.html" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/Home_status.png" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">Home Status</h2>
+        <p>Visualiza el estado de tu hogar en un solo lugar.</p>
+        <a href="https://fsmdasanlo.github.io/MiDespensa/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/Psia.PNG" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">PsicoFact</h2>
+        <p>Gestión facultativa de consultas médicas con intervención de IA</p>
+        <a href="https://fsmdasanlo.github.io/PsicoFact/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/tv.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">TimeTV</h2>
+        <p>Controla el uso del mando de tu TV.</p>
+        <a href="https://fsmdasanlo.github.io/TimeTV/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/loteria.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Lotería</h2>
+        <p>Control de la loteria de Navidad.</p>
+        <a href="https://fsmdasanlo.github.io/Loteria/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/logoAlerti.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;">Alerti</h2>
+        <p>Gestión de alarmas.</p>
+        <a href="https://fsmdasanlo.github.io/Alerti/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/ai_arena.png" alt="AI Arena" style="height: 40px; vertical-align: middle; margin-right: 10px;">AI Arena</h2>
+        <p>Una competición entre IA para descubrir cuál es mejor. ¡Que gane la mejor inteligencia!</p>
+        <a href="https://fsmdasanlo.github.io/AI_arena/" target="_blank" rel="noopener noreferrer">Accede</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="vida" aria-labelledby="vida-title" hidden>
+    <div class="section-heading">
+      <h2 class="category-title" id="vida-title">Deporte, bienestar y viajes</h2>
+      <a class="back-link" href="#inicio">← Todas las categorías</a>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2><img src="img/icon-192B.png" alt="Icono" style="height: 40px; vertical-align: middle; margin-right: 10px;"> <span class="rojo">C</span><span class="verde">ontrol</span><span class="rojo">G</span><span class="marca">ym</span></h2>
+        <p>Asistente personal para tu <strong>Gym</strong> diario.</p>
+        <a href="https://fsmdasanlo.github.io/ControlGym/" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/estancias.png" alt="Icono" style="height: 80px; vertical-align: middle; margin-right: 10px;">Roomly</h2>
+        <p>Selecciona la mejor estancia en tu viaje</p>
+        <a href="https://fsmdasanlo.github.io/Hotel" target="_blank">Accede</a>
+      </div>
+      <div class="card">
+        <h2><img src="img/spartan.jpeg" alt="Spartan Race" style="height: 40px; vertical-align: middle; margin-right: 10px;">NutriPlan</h2>
+        <p><img src="img/nutriplan.jpg" alt="" style="width: 32px; height: 32px; object-fit: cover; vertical-align: middle; margin-right: 8px;">Entrenamiento y nutrición para llegar en plena forma a la Spartan Race de Tenerife.</p>
+        <a href="https://fsmdasanlo.github.io/NutriPlan/" target="_blank" rel="noopener noreferrer">Accede</a>
+      </div>
+    </div>
+  </section>
+  </main>
 
   <footer>
     &copy; 2025 DasanloSoft · Todos los derechos reservados
   </footer>
   
   <script>
+    const appCategories = ['ocio', 'gestion', 'vida'];
+
+    function showCategoryFromHash() {
+      const selectedCategory = window.location.hash.slice(1);
+      const isCategorySelected = appCategories.includes(selectedCategory);
+
+      document.getElementById('inicio').hidden = isCategorySelected;
+      appCategories.forEach((category) => {
+        document.getElementById(category).hidden = category !== selectedCategory;
+      });
+    }
+
+    window.addEventListener('hashchange', showCategoryFromHash);
+    showCategoryFromHash();
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/aplicaciones/service-worker.js')
         .then(reg => console.log('Service Worker registrado', reg))
