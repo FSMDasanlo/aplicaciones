@@ -45,7 +45,10 @@
       font-size: 1.6rem;
     }
     .category-card {
-      display: block;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) 36px;
+      align-items: center;
+      gap: 1rem;
       color: inherit;
       text-decoration: none;
       overflow: hidden;
@@ -53,6 +56,12 @@
       border-top: 5px solid var(--category-accent);
       background: linear-gradient(145deg, #fff 65%, var(--category-tint));
       text-align: left;
+    }
+    .category-card--few {
+      grid-template-columns: 36px minmax(0, 1fr);
+    }
+    .category-card-content {
+      min-width: 0;
     }
     .category-card--play {
       --category-accent: #ec8b32;
@@ -81,20 +90,23 @@
       font-size: 1.4rem;
       line-height: 1.25;
     }
+    .category-card-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .category-card-heading h3 {
+      flex: 1;
+    }
     .category-card p {
       margin: 0 0 1.25rem;
       line-height: 1.5;
     }
-    .category-card-footer {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: auto;
-    }
     .app-icons {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       gap: 0.4rem;
     }
     .app-icons img {
@@ -203,6 +215,21 @@
   font-size: 1.3em
 }
 
+    @media (max-width: 520px) {
+      .category-card {
+        grid-template-columns: 30px minmax(0, 1fr) 30px;
+        gap: 0.6rem;
+        padding: 1rem;
+      }
+      .category-card--few {
+        grid-template-columns: 30px minmax(0, 1fr);
+      }
+      .app-icons img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -215,53 +242,63 @@
 
   <main>
     <section id="inicio" aria-labelledby="inicio-title">
-      <h2 class="category-title" id="inicio-title">Explora por categoría</h2>
+      
       <div class="grid">
         <a class="card category-card category-card--play" href="#ocio">
-          <span class="category-kicker">01 · Para disfrutar</span>
-          <h3>Juegos, aprendizaje y entretenimiento</h3>
-          <p>Juegos de mesa, retos, cultura y planes para disfrutar.</p>
-          <div class="category-card-footer">
-            <div class="app-icons">
-              <img src="img/portada.jpg" alt="El Apuntador">
-              <img src="img/pensando.jpg" alt="Juegos de lógica">
-              <img src="img/mundo.png" alt="Conoce mundo">
-              <img src="img/miju.png" alt="Miju">
-              <img src="img/trivial.png" alt="Trivial">
-              <img src="img/peliplan.png" alt="PeliPlan">
+          <div class="app-icons">
+            <img src="img/portada.jpg" alt="El Apuntador">
+            <img src="img/pensando.jpg" alt="Juegos de lógica">
+            <img src="img/mundo.png" alt="Conoce mundo">
+          </div>
+          <div class="category-card-content">
+            <span class="category-kicker">01 · Para disfrutar</span>
+            <div class="category-card-heading">
+              <h3>Juegos, aprendizaje y entretenimiento</h3>
+              <span class="category-count">6 apps</span>
             </div>
-            <span class="category-count">6 apps</span>
+            <p>Juegos de mesa, retos, cultura y planes para disfrutar.</p>
+          </div>
+          <div class="app-icons">
+            <img src="img/miju.png" alt="Miju">
+            <img src="img/trivial.png" alt="Trivial">
+            <img src="img/peliplan.png" alt="PeliPlan">
           </div>
         </a>
         <a class="card category-card category-card--tools" href="#gestion">
-          <span class="category-kicker">02 · Para organizar</span>
-          <h3>Herramientas y gestión</h3>
-          <p>Aplicaciones para organizar tareas, controlar y gestionar.</p>
-          <div class="category-card-footer">
-            <div class="app-icons">
-              <img src="img/torneo.png" alt="Gestión de Torneos">
-              <img src="img/tikets.png" alt="Control de Gastos">
-              <img src="img/Home_status.png" alt="Home Status">
-              <img src="img/Psia.PNG" alt="PsicoFact">
-              <img src="img/tv.png" alt="TimeTV">
-              <img src="img/loteria.png" alt="Lotería">
-              <img src="img/logoAlerti.png" alt="Alerti">
-              <img src="img/ai_arena.png" alt="AI Arena">
+          <div class="app-icons">
+            <img src="img/torneo.png" alt="Gestión de Torneos">
+            <img src="img/tikets.png" alt="Control de Gastos">
+            <img src="img/Home_status.png" alt="Home Status">
+            <img src="img/Psia.PNG" alt="PsicoFact">
+          </div>
+          <div class="category-card-content">
+            <span class="category-kicker">02 · Para organizar</span>
+            <div class="category-card-heading">
+              <h3>Herramientas y gestión</h3>
+              <span class="category-count">8 apps</span>
             </div>
-            <span class="category-count">8 apps</span>
+            <p>Aplicaciones para organizar tareas, controlar y gestionar.</p>
+          </div>
+          <div class="app-icons">
+            <img src="img/tv.png" alt="TimeTV">
+            <img src="img/loteria.png" alt="Lotería">
+            <img src="img/logoAlerti.png" alt="Alerti">
+            <img src="img/ai_arena.png" alt="AI Arena">
           </div>
         </a>
-        <a class="card category-card category-card--life" href="#vida">
-          <span class="category-kicker">03 · Para cuidarte y viajar</span>
-          <h3>Deporte, bienestar y viajes</h3>
-          <p>Entrenamiento, nutrición y ayuda para tus viajes.</p>
-          <div class="category-card-footer">
-            <div class="app-icons">
-              <img src="img/icon-192B.png" alt="ControlGym">
-              <img src="img/spartan.jpeg" alt="NutriPlan">
-              <img src="img/estancias.png" alt="Roomly">
+        <a class="card category-card category-card--life category-card--few" href="#vida">
+          <div class="app-icons">
+            <img src="img/icon-192B.png" alt="ControlGym">
+            <img src="img/spartan.jpeg" alt="NutriPlan">
+            <img src="img/estancias.png" alt="Roomly">
+          </div>
+          <div class="category-card-content">
+            <span class="category-kicker">03 · Para cuidarte y viajar</span>
+            <div class="category-card-heading">
+              <h3>Deporte, bienestar y viajes</h3>
+              <span class="category-count">3 apps</span>
             </div>
-            <span class="category-count">3 apps</span>
+            <p>Entrenamiento, nutrición y ayuda para tus viajes.</p>
           </div>
         </a>
       </div>
