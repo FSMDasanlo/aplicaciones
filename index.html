@@ -44,74 +44,17 @@
       color: #004d4d;
       font-size: 1.6rem;
     }
-    .category-card {
-      display: grid;
-      grid-template-columns: 36px minmax(0, 1fr) 36px;
-      align-items: center;
-      gap: 1rem;
-      color: inherit;
-      text-decoration: none;
-      overflow: hidden;
-      min-height: 220px;
-      border-top: 5px solid var(--category-accent);
-      background: linear-gradient(145deg, #fff 65%, var(--category-tint));
-      text-align: left;
-    }
-    .category-card--few {
-      grid-template-columns: 36px minmax(0, 1fr);
-    }
-    .category-card-content {
-      min-width: 0;
-    }
     .category-card--play {
-      --category-accent: #ec8b32;
-      --category-tint: #fff3e6;
+      --category-accent: #a85e24;
+      --category-tint: #fff0df;
     }
     .category-card--tools {
-      --category-accent: #4388c8;
-      --category-tint: #eaf4fc;
+      --category-accent: #2672a0;
+      --category-tint: #e5f2fb;
     }
     .category-card--life {
-      --category-accent: #35a578;
-      --category-tint: #e9f7f0;
-    }
-    .category-kicker {
-      display: block;
-      margin-bottom: 1rem;
-      color: var(--category-accent);
-      font-size: 1rem;
-      font-weight: bold;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .category-card h3 {
-      margin: 0 0 0.65rem;
-      color: #004d4d;
-      font-size: 1.4rem;
-      line-height: 1.25;
-    }
-    .category-card p {
-      margin: 0 0 1.25rem;
-      line-height: 1.5;
-    }
-    .app-icons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .app-icons img {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(0, 77, 77, 0.1);
-      border-radius: 9px;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-      object-fit: cover;
-    }
-    .category-card:focus-visible {
-      outline: 3px solid var(--category-accent);
-      outline-offset: 3px;
+      --category-accent: #287c68;
+      --category-tint: #e5f5ee;
     }
     .section-heading {
       display: flex;
@@ -175,6 +118,81 @@
     .card a:focus-visible::after {
       outline: 3px solid #28a745;
     }
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--category-accent);
+      border-radius: 12px;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+    .category-kicker {
+      display: block;
+      padding: 0.9rem 1rem;
+      background: var(--category-accent);
+      color: white;
+      font-size: 0.95rem;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .category-card-content {
+      padding: 1rem 1.25rem;
+      background: var(--category-tint);
+    }
+    .category-card h3 {
+      margin: 0 0 0.4rem;
+      color: #18384b;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+    .category-card p {
+      margin: 0;
+      color: #425563;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+    .app-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+      align-content: center;
+      justify-items: center;
+      gap: 1rem 0.75rem;
+      flex: 1;
+      margin: 0.75rem;
+      padding: 1rem;
+      border: 1px solid rgba(24, 56, 75, 0.45);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .app-icons img {
+      width: 56px;
+      height: 56px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .category-card:focus-visible {
+      outline: 3px solid #18384b;
+      outline-offset: 4px;
+    }
+    @media (max-width: 520px) {
+      .category-card {
+        min-height: 320px;
+      }
+      .app-icons img {
+        width: 48px;
+        height: 48px;
+      }
+    }
     footer {
       text-align: center;
       padding: 1rem;
@@ -196,21 +214,6 @@
   font-size: 1.3em
 }
 
-    @media (max-width: 520px) {
-      .category-card {
-        grid-template-columns: 30px minmax(0, 1fr) 30px;
-        gap: 0.6rem;
-        padding: 1rem;
-      }
-      .category-card--few {
-        grid-template-columns: 30px minmax(0, 1fr);
-      }
-      .app-icons img {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
   </style>
 </head>
 <body>
@@ -226,52 +229,48 @@
       
       <div class="grid">
         <a class="card category-card category-card--play" href="#ocio">
-          <div class="app-icons">
-            <img src="img/portada.jpg" alt="El Apuntador">
-            <img src="img/pensando.jpg" alt="Juegos de lógica">
-            <img src="img/mundo.png" alt="Conoce mundo">
-            <img src="img/logo_eventere.png" alt="Eventere">
-          </div>
+          <span class="category-kicker">01 · Para disfrutar</span>
           <div class="category-card-content">
-            <span class="category-kicker">01 · Para disfrutar</span>
             <h3>Juegos, aprendizaje y celebraciones</h3>
             <p>Juegos, retos, cultura y detalles artesanales para eventos.</p>
           </div>
-          <div class="app-icons">
-            <img src="img/miju.png" alt="Miju">
-            <img src="img/trivial.png" alt="Trivial">
-            <img src="img/peliplan.png" alt="PeliPlan">
+          <div class="app-icons" aria-hidden="true">
+            <img src="img/portada.jpg" alt="">
+            <img src="img/pensando.jpg" alt="">
+            <img src="img/mundo.png" alt="">
+            <img src="img/miju.png" alt="">
+            <img src="img/trivial.png" alt="">
+            <img src="img/peliplan.png" alt="">
+            <img src="img/logo_eventere.png" alt="">
           </div>
         </a>
         <a class="card category-card category-card--tools" href="#gestion">
-          <div class="app-icons">
-            <img src="img/torneo.png" alt="Gestión de Torneos">
-            <img src="img/tikets.png" alt="Control de Gastos">
-            <img src="img/Home_status.png" alt="Home Status">
-            <img src="img/Psia.PNG" alt="PsicoFact">
-          </div>
+          <span class="category-kicker">02 · Para organizar</span>
           <div class="category-card-content">
-            <span class="category-kicker">02 · Para organizar</span>
             <h3>Herramientas y gestión</h3>
             <p>Aplicaciones para organizar tareas, controlar y gestionar.</p>
           </div>
-          <div class="app-icons">
-            <img src="img/tv.png" alt="TimeTV">
-            <img src="img/loteria.png" alt="Lotería">
-            <img src="img/logoAlerti.png" alt="Alerti">
-            <img src="img/ai_arena.png" alt="AI Arena">
+          <div class="app-icons" aria-hidden="true">
+            <img src="img/torneo.png" alt="">
+            <img src="img/tikets.png" alt="">
+            <img src="img/Home_status.png" alt="">
+            <img src="img/Psia.PNG" alt="">
+            <img src="img/tv.png" alt="">
+            <img src="img/loteria.png" alt="">
+            <img src="img/logoAlerti.png" alt="">
+            <img src="img/ai_arena.png" alt="">
           </div>
         </a>
-        <a class="card category-card category-card--life category-card--few" href="#vida">
-          <div class="app-icons">
-            <img src="img/icon-192B.png" alt="ControlGym">
-            <img src="img/spartan.jpeg" alt="NutriPlan">
-            <img src="img/estancias.png" alt="Roomly">
-          </div>
+        <a class="card category-card category-card--life" href="#vida">
+          <span class="category-kicker">03 · Para cuidarte y viajar</span>
           <div class="category-card-content">
-            <span class="category-kicker">03 · Para cuidarte y viajar</span>
             <h3>Deporte, bienestar y viajes</h3>
             <p>Entrenamiento, nutrición y ayuda para tus viajes.</p>
+          </div>
+          <div class="app-icons" aria-hidden="true">
+            <img src="img/icon-192B.png" alt="">
+            <img src="img/spartan.jpeg" alt="">
+            <img src="img/estancias.png" alt="">
           </div>
         </a>
       </div>
